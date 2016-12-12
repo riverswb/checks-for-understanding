@@ -5,34 +5,35 @@ Fork this respository. Answer the questions to the best of your ability. Try to 
 Note: When you're done, submit a PR. 
 
 1. At a high level, what is ActiveRecord? What does it do/allow you to do?
-2. Assume you have the following model:
-
-```ruby
-class Team << ActiveRecord::Base
-end
-```
-
-What are some methods you can call on `Team`? If these methods aren't defined in the class, how do you have access to them?
-
-3. Assume that in your database, a team has the following attributes: "id", "name", owner_id". How would you find the name of a team with an id of 4? Assuming your class only included the code from question 2, how could you find the owner of the same team?
-
-4. Assume that you added a line to your `Team` class as follows:
-
-```ruby
-class Team << ActiveRecord::Base
-  belongs_to :owner
-end
-```
-
-Now how would you find the owner of the team with an id of 4?
-
+  * allows us to make SQL queries to a database by writing Ruby
+2. What kind of methods are `belongs_to`, and `has_many`? (i.e. class or instance) Give an example.
+  * Associations are class methods.
+  ```ruby
+  class Example < ApplicationRecord
+    has_many :things
+  end
+  ```
 3. What do they allow you to do?
+  * associations allow us to use easier and more common methods.  To see what things the first Example has we could write Example.first.things
+4. What's the difference between agile workflow and waterfall method?
+  * Both break a large problem into stages.  Agile workflow is completing small pieces of each stage, then starting another piece.  Waterfall workflow completes stage 1, then 2, etc.  
+5. What is the difference between `#new` and `#create`?
+  * #new doesn't save.  #create is like #new & #save 
+6. At a basic level, what does cURL allow you to do?
+  * curl let's us see what is being trasfered back after sending a get request to the url you pass as an argument
 7. In a database that's holding students and teachers, what will be the relationship between students and teachers? Draw the schema diagram.
+  * 1 Teacher --> Many Students
+  * ![teacher student schema](http://i.imgur.com/aplbHrs.png)
 8. Define foreign key, primary key, and schema.
+  * foreign key: relates to primary key of related table
+  * primary key: unique identifier
+  * schema: the database, or a representation of it
 9. Describe the relationship between a foreign key on one table and a primary key on another table.
+  * the foreign key on one table points to the primary key on another table
 10. What are the parts of an HTTP response?
+  * status code, headers, body
 11. Describe some techniques to make our Sinatra code more DRY. Give an example of when you would use these techniques.
-
+  * DRY: don't repeat yourself.  If you have a few methods that have a similar part you can extract that part out to a new method, then call it in from those methods.  I used this style of DRY when making the weather conditions dashboard for Bike Share.
 
 ### Optional Questions
 
@@ -52,3 +53,5 @@ Now how would you find the owner of the team with an id of 4?
 15. What types of output do we want to test when we test our controllers?
 16. What could you see in your code that would make you think you might want to create a partial?
 17. Why might you use a helper method?
+
+0
